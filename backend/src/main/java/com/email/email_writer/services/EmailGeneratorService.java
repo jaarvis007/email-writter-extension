@@ -71,12 +71,13 @@ public class EmailGeneratorService {
         String prompt = buildPrompt(emailRequest);
 
         Map<String, Object> requestBody = Map.of(
-                "content", List.of(
+                "contents", List.of(
                         Map.of("parts", List.of(
                                 Map.of("text", prompt)
                         ))
                 )
         );
+
 
         String response = webClient.post()
                 .uri(geminiApiUrl)
